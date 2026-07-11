@@ -1,5 +1,28 @@
 import { motion } from 'framer-motion'
 import type { Repo } from '../lib/github'
+import typescriptIcon from '../assets/logos/tech/typescript.svg'
+import javascriptIcon from '../assets/logos/tech/javascript.svg'
+import pythonIcon from '../assets/logos/tech/python.svg'
+import csharpIcon from '../assets/logos/tech/csharp.svg'
+import html5Icon from '../assets/logos/tech/html5.svg'
+import css3Icon from '../assets/logos/tech/css3.svg'
+import goIcon from '../assets/logos/tech/go.svg'
+import bashIcon from '../assets/logos/tech/bash.svg'
+import cIcon from '../assets/logos/tech/c.svg'
+import rustIcon from '../assets/logos/tech/rust.svg'
+
+const LANGUAGE_ICONS: Record<string, string> = {
+  TypeScript: typescriptIcon,
+  JavaScript: javascriptIcon,
+  Python: pythonIcon,
+  'C#': csharpIcon,
+  HTML: html5Icon,
+  CSS: css3Icon,
+  Go: goIcon,
+  Shell: bashIcon,
+  C: cIcon,
+  Rust: rustIcon,
+}
 
 const LANGUAGE_COLORS: Record<string, string> = {
   TypeScript: '#3178c6',
@@ -9,11 +32,13 @@ const LANGUAGE_COLORS: Record<string, string> = {
   HTML: '#e34c26',
   CSS: '#563d7c',
   Go: '#00ADD8',
-  Java: '#b07219',
   Shell: '#89e051',
+  C: '#555555',
+  Rust: '#dea584',
 }
 
 export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
+  const languageIcon = repo.language ? LANGUAGE_ICONS[repo.language] : undefined
   const languageColor = repo.language
     ? (LANGUAGE_COLORS[repo.language] ?? '#8b8b93')
     : null
@@ -53,11 +78,15 @@ export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
       <div className="mt-4 flex items-center justify-between text-xs text-[var(--color-text-muted)]">
         {repo.language ? (
           <span className="flex items-center gap-1.5">
-            <span
-              aria-hidden="true"
-              className="h-2.5 w-2.5 rounded-full"
-              style={{ background: languageColor ?? undefined }}
-            />
+            {languageIcon ? (
+              <img src={languageIcon} alt="" className="h-3.5 w-3.5" />
+            ) : (
+              <span
+                aria-hidden="true"
+                className="h-2.5 w-2.5 rounded-full"
+                style={{ background: languageColor ?? undefined }}
+              />
+            )}
             {repo.language}
           </span>
         ) : (

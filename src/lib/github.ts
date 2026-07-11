@@ -16,6 +16,9 @@ const GITHUB_USERNAME = 'Gamedirection'
 // Forks worth showing despite the fork filter below (real contribution work).
 const PINNED_FORKS = new Set(['AffinityOnLinux'])
 
+// Repos not worth showing on the portfolio (junk/test repos).
+const EXCLUDED_REPOS = new Set(['gimp-kink', 'test'])
+
 export async function fetchRepos(): Promise<Repo[]> {
   const response = await fetch(
     `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`,
@@ -31,7 +34,9 @@ export async function fetchRepos(): Promise<Repo[]> {
   return repos
     .filter(
       (repo) =>
-        (!repo.fork || PINNED_FORKS.has(repo.name)) && !repo.archived,
+        (!repo.fork || PINNED_FORKS.has(repo.name)) &&
+        !repo.archived &&
+        !EXCLUDED_REPOS.has(repo.name),
     )
     .sort(
       (a, b) =>
