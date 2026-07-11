@@ -45,6 +45,12 @@ const TESTIMONIALS = [
     name: 'Brian L.',
     role: 'VP of Infrastructure & Security, Pansophic Learning',
   },
+  {
+    quote:
+      'I wish I knew Alex 3 years earlier! Alex always creates high quality products.',
+    name: 'Brad Talton',
+    role: 'Founder, Level99 Games',
+  },
 ]
 
 const STATS = [
