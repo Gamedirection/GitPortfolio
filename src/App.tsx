@@ -5,22 +5,26 @@ import { TechStack } from './components/TechStack'
 import { Projects } from './components/Projects'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { Background } from './components/Background'
 
 function App() {
   return (
     <>
+      <Background />
       <a href="#main" className="skip-link">
         Skip to main content
       </a>
-      <Header />
-      <main id="main">
-        <Hero />
-        <CompaniesGallery />
-        <TechStack />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="relative z-10">
+        <Header />
+        <main id="main">
+          <Hero />
+          <CompaniesGallery />
+          <TechStack />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

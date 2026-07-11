@@ -49,7 +49,7 @@ export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, delay: Math.min(index, 6) * 0.05 }}
-      className="flex h-full flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm transition-shadow hover:shadow-md"
+      className="project-card flex h-full flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5"
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="text-lg font-semibold">

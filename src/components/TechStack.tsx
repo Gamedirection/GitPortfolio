@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Tooltip } from './Tooltip'
 import dockerIcon from '../assets/logos/tech/docker.svg'
 import helmIcon from '../assets/logos/tech/helm.svg'
 import pythonIcon from '../assets/logos/tech/python.svg'
@@ -39,44 +40,49 @@ import assetpandaIcon from '../assets/logos/tech/assetpanda.svg'
 import zendeskIcon from '../assets/logos/tech/zendesk.svg'
 
 const TECH_STACK = [
-  { name: 'Docker', src: dockerIcon },
-  { name: 'Helm', src: helmIcon },
-  { name: 'Python', src: pythonIcon },
-  { name: 'Rust', src: rustIcon },
-  { name: 'PostgreSQL', src: postgresqlIcon },
-  { name: 'Go', src: goIcon },
-  { name: 'JSON', src: jsonIcon },
-  { name: 'YAML', src: yamlIcon },
-  { name: 'TypeScript', src: typescriptIcon },
-  { name: 'JavaScript', src: javascriptIcon },
-  { name: 'C#', src: csharpIcon },
-  { name: 'HTML5', src: html5Icon },
-  { name: 'CSS3', src: css3Icon },
-  { name: 'Shell', src: bashIcon },
-  { name: 'C', src: cIcon },
-  { name: 'AWS', src: awsIcon },
-  { name: 'Git', src: gitIcon },
-  { name: 'Linux', src: linuxIcon },
-  { name: 'VS Code', src: vscodeIcon },
-  { name: 'Neovim', src: nvimIcon },
-  { name: 'tmux', src: tmuxIcon },
-  { name: 'byobu', src: byobuIcon },
-  { name: 'QEMU', src: qemuIcon },
-  { name: 'Arch Linux', src: archIcon },
-  { name: 'Gentoo', src: gentooIcon },
-  { name: 'qutebrowser', src: qutebrowserIcon },
-  { name: 'Google', src: googleIcon },
-  { name: 'Azure', src: azureIcon },
-  { name: 'Hetzner', src: hetznerIcon },
-  { name: 'Microsoft 365', src: m365Icon },
-  { name: 'RingCentral', src: ringcentralIcon },
-  { name: 'Clio', src: clioIcon },
-  { name: 'Autotask', src: autotaskIcon },
-  { name: 'Kaseya', src: kaseyaoneIcon },
-  { name: 'NinjaOne', src: ninjaoneIcon },
-  { name: 'Datto RMM', src: dattormmIcon },
-  { name: 'Asset Panda', src: assetpandaIcon, dark: true },
-  { name: 'Zendesk', src: zendeskIcon },
+  { name: 'Docker', src: dockerIcon, category: 'Containerization' },
+  { name: 'Helm', src: helmIcon, category: 'Kubernetes package manager' },
+  { name: 'Python', src: pythonIcon, category: 'Language' },
+  { name: 'Rust', src: rustIcon, category: 'Language' },
+  { name: 'PostgreSQL', src: postgresqlIcon, category: 'Database' },
+  { name: 'Go', src: goIcon, category: 'Language' },
+  { name: 'JSON', src: jsonIcon, category: 'Data format' },
+  { name: 'YAML', src: yamlIcon, category: 'Data format' },
+  { name: 'TypeScript', src: typescriptIcon, category: 'Language' },
+  { name: 'JavaScript', src: javascriptIcon, category: 'Language' },
+  { name: 'C#', src: csharpIcon, category: 'Language' },
+  { name: 'HTML5', src: html5Icon, category: 'Markup' },
+  { name: 'CSS3', src: css3Icon, category: 'Styling' },
+  { name: 'Shell', src: bashIcon, category: 'Scripting' },
+  { name: 'C', src: cIcon, category: 'Language' },
+  { name: 'AWS', src: awsIcon, category: 'Cloud platform' },
+  { name: 'Git', src: gitIcon, category: 'Version control' },
+  { name: 'Linux', src: linuxIcon, category: 'Operating system' },
+  { name: 'VS Code', src: vscodeIcon, category: 'Editor' },
+  { name: 'Neovim', src: nvimIcon, category: 'Editor' },
+  { name: 'tmux', src: tmuxIcon, category: 'Terminal multiplexer' },
+  { name: 'byobu', src: byobuIcon, category: 'Terminal multiplexer' },
+  { name: 'QEMU', src: qemuIcon, category: 'Virtualization' },
+  { name: 'Arch Linux', src: archIcon, category: 'OS distro' },
+  { name: 'Gentoo', src: gentooIcon, category: 'OS distro' },
+  { name: 'qutebrowser', src: qutebrowserIcon, category: 'Browser' },
+  { name: 'Google', src: googleIcon, category: 'Cloud & services' },
+  { name: 'Azure', src: azureIcon, category: 'Cloud platform' },
+  { name: 'Hetzner', src: hetznerIcon, category: 'Hosting' },
+  { name: 'Microsoft 365', src: m365Icon, category: 'Productivity suite' },
+  { name: 'RingCentral', src: ringcentralIcon, category: 'Communications' },
+  { name: 'Clio', src: clioIcon, category: 'Legal practice management' },
+  { name: 'Autotask', src: autotaskIcon, category: 'PSA software' },
+  { name: 'Kaseya', src: kaseyaoneIcon, category: 'IT management' },
+  { name: 'NinjaOne', src: ninjaoneIcon, category: 'RMM' },
+  { name: 'Datto RMM', src: dattormmIcon, category: 'RMM' },
+  {
+    name: 'Asset Panda',
+    src: assetpandaIcon,
+    category: 'Asset management',
+    dark: true,
+  },
+  { name: 'Zendesk', src: zendeskIcon, category: 'Helpdesk & ticketing' },
 ]
 
 export function TechStack() {
@@ -103,18 +109,23 @@ export function TechStack() {
             transition={{ duration: 0.35, delay: Math.min(index, 12) * 0.04 }}
             className="flex flex-col items-center gap-2"
           >
-            <div
-              className={`logo-tile flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] p-3 hover:-translate-y-1 ${
-                tech.dark ? 'bg-[#0d1b26]' : 'logo-tile--light bg-white'
-              }`}
-            >
-              <img
-                src={tech.src}
-                alt=""
-                className="max-h-full max-w-full object-contain"
-                loading="lazy"
-              />
-            </div>
+            <Tooltip label={`${tech.name} · ${tech.category}`}>
+              {(tooltipId) => (
+                <div
+                  aria-describedby={tooltipId}
+                  className={`logo-tile flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] p-3 ${
+                    tech.dark ? 'bg-[#0d1b26]' : 'logo-tile--light bg-white'
+                  }`}
+                >
+                  <img
+                    src={tech.src}
+                    alt=""
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+            </Tooltip>
             <span className="text-xs font-medium text-[var(--color-text-muted)]">
               {tech.name}
             </span>

@@ -23,7 +23,7 @@ export function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                  className="nav-link text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
                   {link.label}
                 </a>

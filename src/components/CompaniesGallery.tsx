@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Tooltip } from './Tooltip'
 import gamedirectionLogo from '../assets/logo.png'
 import ctmsLogo from '../assets/logos/companies/ctms.png'
 import accelSchoolsLogo from '../assets/logos/companies/accel-schools.png'
@@ -68,21 +69,27 @@ export function CompaniesGallery() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.4, delay: Math.min(index, 8) * 0.05 }}
           >
-            <a
-              href={company.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={company.name}
-              title={company.name}
-              className="logo-tile logo-tile--light flex h-24 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white p-4 hover:-translate-y-1"
+            <Tooltip
+              label={`${company.name} · ${new URL(company.href).hostname.replace(/^www\./, '')}`}
             >
-              <img
-                src={company.src}
-                alt={company.name}
-                className="max-h-12 max-w-full object-contain"
-                loading="lazy"
-              />
-            </a>
+              {(tooltipId) => (
+                <a
+                  href={company.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={company.name}
+                  aria-describedby={tooltipId}
+                  className="logo-tile logo-tile--light flex h-24 w-full items-center justify-center rounded-xl border border-[var(--color-border)] bg-white p-4"
+                >
+                  <img
+                    src={company.src}
+                    alt={company.name}
+                    className="max-h-12 max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </a>
+              )}
+            </Tooltip>
           </motion.li>
         ))}
       </ul>
