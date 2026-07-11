@@ -35,7 +35,7 @@ export function Contact() {
         Get in Touch
       </h2>
       <p className="mx-auto mt-2 max-w-xl text-center text-[var(--color-text-muted)]">
-        Open to new opportunities and interesting problems — reach out
+        Open to new opportunities and interesting problems, reach out
         through any of these.
       </p>
 

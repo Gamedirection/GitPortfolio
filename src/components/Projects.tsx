@@ -37,7 +37,7 @@ export function Projects() {
         Projects
       </h2>
       <p className="mx-auto mt-2 max-w-xl text-center text-[var(--color-text-muted)]">
-        Live from GitHub — pulled directly from{' '}
+        Live from GitHub, pulled directly from{' '}
         <a
           href="https://github.com/Gamedirection"
           target="_blank"

@@ -1,4 +1,5 @@
 import { ThemeToggle } from './ThemeToggle'
+import logo from '../assets/logo.png'
 
 const NAV_LINKS = [
   { href: '#about', label: 'About' },
@@ -10,7 +11,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-4">
-        <span className="font-semibold tracking-tight">
+        <span className="flex items-center gap-2 font-semibold tracking-tight">
+          <img src={logo} alt="" width="28" height="28" className="rounded-full" />
           Alexander Sierputowski
         </span>
         <nav aria-label="Primary">

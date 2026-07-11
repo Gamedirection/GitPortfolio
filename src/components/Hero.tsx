@@ -58,8 +58,8 @@ export function Hero() {
           className="max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)]"
         >
           I build scalable business automation systems and full-stack
-          applications — from FastAPI and Postgres backends to Microsoft 365,
-          Paycom, and Duo integrations — with a background in game design
+          applications, from FastAPI and Postgres backends to Microsoft 365,
+          Paycom, and Duo integrations, with a background in game design
           that shaped how I think about modular, maintainable, long-lasting
           software.
         </motion.p>
