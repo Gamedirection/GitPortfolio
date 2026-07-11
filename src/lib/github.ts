@@ -13,6 +13,9 @@ export type Repo = {
 
 const GITHUB_USERNAME = 'Gamedirection'
 
+// Forks worth showing despite the fork filter below (real contribution work).
+const PINNED_FORKS = new Set(['AffinityOnLinux'])
+
 export async function fetchRepos(): Promise<Repo[]> {
   const response = await fetch(
     `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`,
@@ -26,7 +29,10 @@ export async function fetchRepos(): Promise<Repo[]> {
   const repos: Repo[] = await response.json()
 
   return repos
-    .filter((repo) => !repo.fork && !repo.archived)
+    .filter(
+      (repo) =>
+        (!repo.fork || PINNED_FORKS.has(repo.name)) && !repo.archived,
+    )
     .sort((a, b) => {
       if (b.stargazers_count !== a.stargazers_count) {
         return b.stargazers_count - a.stargazers_count
