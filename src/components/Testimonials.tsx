@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { fetchRepos } from '../lib/github'
 
 const TESTIMONIALS = [
   {
@@ -53,13 +55,38 @@ const TESTIMONIALS = [
   },
 ]
 
-const STATS = [
+const BASE_STATS = [
   { value: '4,900+', label: 'Tickets handled' },
   { value: '3,300+', label: 'Resolved personally' },
   { value: '1.25 yrs', label: 'Across multiple schools' },
 ]
 
 export function Testimonials() {
+  const [publicRepoCount, setPublicRepoCount] = useState<number | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    fetchRepos()
+      .then((repos) => {
+        if (!cancelled) setPublicRepoCount(repos.length)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const stats =
+    publicRepoCount === null
+      ? BASE_STATS
+      : [
+          {
+            value: `${publicRepoCount * 2}+`,
+            label: 'Projects published',
+          },
+          ...BASE_STATS,
+        ]
+
   return (
     <section
       id="testimonials"
@@ -74,7 +101,7 @@ export function Testimonials() {
       </p>
 
       <dl className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-x-10 gap-y-4 text-center">
-        {STATS.map((stat) => (
+        {stats.map((stat) => (
           <div key={stat.label}>
             <dt className="text-2xl font-bold text-[var(--color-accent)]">
               {stat.value}
@@ -85,6 +112,12 @@ export function Testimonials() {
           </div>
         ))}
       </dl>
+      {publicRepoCount !== null && (
+        <p className="mt-2 text-center text-xs text-[var(--color-text-muted)]">
+          GitHub only shows {publicRepoCount} public repos, plenty more is
+          private or under NDA.
+        </p>
+      )}
 
       <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {TESTIMONIALS.map((testimonial, index) => (
