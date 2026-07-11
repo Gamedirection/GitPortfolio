@@ -36,6 +36,7 @@ import kaseyaoneIcon from '../assets/logos/tech/kaseyaone.svg'
 import ninjaoneIcon from '../assets/logos/tech/ninjaone.svg'
 import dattormmIcon from '../assets/logos/tech/dattormm.svg'
 import assetpandaIcon from '../assets/logos/tech/assetpanda.svg'
+import zendeskIcon from '../assets/logos/tech/zendesk.svg'
 
 const TECH_STACK = [
   { name: 'Docker', src: dockerIcon },
@@ -75,6 +76,7 @@ const TECH_STACK = [
   { name: 'NinjaOne', src: ninjaoneIcon },
   { name: 'Datto RMM', src: dattormmIcon },
   { name: 'Asset Panda', src: assetpandaIcon, dark: true },
+  { name: 'Zendesk', src: zendeskIcon },
 ]
 
 export function TechStack() {
@@ -102,8 +104,8 @@ export function TechStack() {
             className="flex flex-col items-center gap-2"
           >
             <div
-              className={`flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] p-3 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md ${
-                tech.dark ? 'bg-[#0d1b26]' : 'bg-white'
+              className={`logo-tile flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] p-3 hover:-translate-y-1 ${
+                tech.dark ? 'bg-[#0d1b26]' : 'logo-tile--light bg-white'
               }`}
             >
               <img

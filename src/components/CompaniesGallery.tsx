@@ -13,6 +13,7 @@ import tarkettLogo from '../assets/logos/companies/tarkett.svg'
 import amourgisLogo from '../assets/logos/companies/amourgis.png'
 import dreebotLogo from '../assets/logos/companies/dreebot.png'
 import violetKnightLogo from '../assets/logos/companies/violet-knight.png'
+import marhoferLogo from '../assets/logos/companies/marhofer.png'
 
 const COMPANIES = [
   { name: 'CTMS', src: ctmsLogo, href: 'https://ctmsit.com' },
@@ -41,6 +42,7 @@ const COMPANIES = [
   { name: 'Amourgis & Associates', src: amourgisLogo, href: 'https://www.amourgis.com' },
   { name: 'DreeBot', src: dreebotLogo, href: 'https://dreebot.com' },
   { name: 'Violet Knight', src: violetKnightLogo, href: 'https://violet-knight.com' },
+  { name: 'Ron Marhofer Auto Family', src: marhoferLogo, href: 'https://www.marhofer.com' },
 ]
 
 export function CompaniesGallery() {
@@ -72,7 +74,7 @@ export function CompaniesGallery() {
               rel="noreferrer noopener"
               aria-label={company.name}
               title={company.name}
-              className="flex h-24 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+              className="logo-tile logo-tile--light flex h-24 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white p-4 hover:-translate-y-1"
             >
               <img
                 src={company.src}
