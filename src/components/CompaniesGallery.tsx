@@ -10,6 +10,9 @@ import riotLogo from '../assets/logos/companies/riot-games.svg'
 import capcomLogo from '../assets/logos/companies/capcom.svg'
 import hylandLogo from '../assets/logos/companies/hyland.png'
 import tarkettLogo from '../assets/logos/companies/tarkett.svg'
+import amourgisLogo from '../assets/logos/companies/amourgis.png'
+import dreebotLogo from '../assets/logos/companies/dreebot.png'
+import violetKnightLogo from '../assets/logos/companies/violet-knight.png'
 
 const COMPANIES = [
   { name: 'CTMS', src: ctmsLogo, href: 'https://ctmsit.com' },
@@ -33,8 +36,11 @@ const COMPANIES = [
   },
   { name: 'Riot Games', src: riotLogo, href: 'https://www.riotgames.com' },
   { name: 'Capcom', src: capcomLogo, href: 'https://www.capcom.com' },
-  { name: 'Hyland Software', src: hylandLogo, href: 'https://www.hyland.com' },
+  { name: 'Hyland OnBase', src: hylandLogo, href: 'https://www.hyland.com' },
   { name: 'Tarkett', src: tarkettLogo, href: 'https://www.tarkett.com' },
+  { name: 'Amourgis & Associates', src: amourgisLogo, href: 'https://www.amourgis.com' },
+  { name: 'DreeBot', src: dreebotLogo, href: 'https://dreebot.com' },
+  { name: 'Violet Knight', src: violetKnightLogo, href: 'https://violet-knight.com' },
 ]
 
 export function CompaniesGallery() {

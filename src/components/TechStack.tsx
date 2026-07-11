@@ -18,6 +18,24 @@ import awsIcon from '../assets/logos/tech/aws.svg'
 import gitIcon from '../assets/logos/tech/git.svg'
 import linuxIcon from '../assets/logos/tech/linux.svg'
 import vscodeIcon from '../assets/logos/tech/vscode.svg'
+import nvimIcon from '../assets/logos/tech/nvim.svg'
+import tmuxIcon from '../assets/logos/tech/tmux.svg'
+import byobuIcon from '../assets/logos/tech/byobu.svg'
+import qemuIcon from '../assets/logos/tech/qemu.svg'
+import archIcon from '../assets/logos/tech/arch.svg'
+import gentooIcon from '../assets/logos/tech/gentoo.svg'
+import qutebrowserIcon from '../assets/logos/tech/qutebrowser.svg'
+import googleIcon from '../assets/logos/tech/google.svg'
+import azureIcon from '../assets/logos/tech/azure.svg'
+import hetznerIcon from '../assets/logos/tech/hetzner.svg'
+import m365Icon from '../assets/logos/tech/m365.svg'
+import ringcentralIcon from '../assets/logos/tech/ringcentral.svg'
+import clioIcon from '../assets/logos/tech/clio.svg'
+import autotaskIcon from '../assets/logos/tech/autotask.png'
+import kaseyaoneIcon from '../assets/logos/tech/kaseyaone.svg'
+import ninjaoneIcon from '../assets/logos/tech/ninjaone.svg'
+import dattormmIcon from '../assets/logos/tech/dattormm.svg'
+import assetpandaIcon from '../assets/logos/tech/assetpanda.svg'
 
 const TECH_STACK = [
   { name: 'Docker', src: dockerIcon },
@@ -39,6 +57,24 @@ const TECH_STACK = [
   { name: 'Git', src: gitIcon },
   { name: 'Linux', src: linuxIcon },
   { name: 'VS Code', src: vscodeIcon },
+  { name: 'Neovim', src: nvimIcon },
+  { name: 'tmux', src: tmuxIcon },
+  { name: 'byobu', src: byobuIcon },
+  { name: 'QEMU', src: qemuIcon },
+  { name: 'Arch Linux', src: archIcon },
+  { name: 'Gentoo', src: gentooIcon },
+  { name: 'qutebrowser', src: qutebrowserIcon },
+  { name: 'Google', src: googleIcon },
+  { name: 'Azure', src: azureIcon },
+  { name: 'Hetzner', src: hetznerIcon },
+  { name: 'Microsoft 365', src: m365Icon },
+  { name: 'RingCentral', src: ringcentralIcon },
+  { name: 'Clio', src: clioIcon },
+  { name: 'Autotask', src: autotaskIcon },
+  { name: 'Kaseya', src: kaseyaoneIcon },
+  { name: 'NinjaOne', src: ninjaoneIcon },
+  { name: 'Datto RMM', src: dattormmIcon },
+  { name: 'Asset Panda', src: assetpandaIcon, dark: true },
 ]
 
 export function TechStack() {
@@ -52,8 +88,7 @@ export function TechStack() {
         Tech Stack
       </h2>
       <p className="mx-auto mt-2 max-w-xl text-center text-[var(--color-text-muted)]">
-        Languages and tools I reach for most, pulled from what actually
-        shows up across my repos.
+        Languages and Tools I reach for first.
       </p>
 
       <ul className="mt-10 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
@@ -66,7 +101,11 @@ export function TechStack() {
             transition={{ duration: 0.35, delay: Math.min(index, 12) * 0.04 }}
             className="flex flex-col items-center gap-2"
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white p-3 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
+            <div
+              className={`flex h-16 w-16 items-center justify-center rounded-xl border border-[var(--color-border)] p-3 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md ${
+                tech.dark ? 'bg-[#0d1b26]' : 'bg-white'
+              }`}
+            >
               <img
                 src={tech.src}
                 alt=""
