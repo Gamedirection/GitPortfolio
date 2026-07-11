@@ -3,6 +3,8 @@ import logo from '../assets/logo.png'
 
 const NAV_LINKS = [
   { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#stack', label: 'Stack' },
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
